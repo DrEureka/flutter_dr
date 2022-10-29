@@ -3,15 +3,23 @@ import 'package:flutter/material.dart'; //paquete de dart para crear aplicacione
 void main() {
   runApp(const MyApp()); //metodo de entrada para iniciar la app de flutter
 }
+
+//widget principal heredan statelesswidget dentro son los assests imagen y text etc.
+//luego tambien hereda de widget los statefulwidget que son los botones, checkbox, scrolllable, animatable etc.
+//statelessWidget es la clase base para los widgets sin estado
 //MyApp es una clase que hereda de StatelessWidget
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+  //metodo build que retorna un widget
+  //materialapp es un widget que crea una aplicacion material
+  //titulo de la app
+  //theme es un widget que crea un tema para la app
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Honorable Senado de la Nación Argentina', //titulo de la app
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,13 +32,16 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(
+          title:
+              'Honorable Senado de la Nación Argentina'), //es el widget que se muestra en la pantalla en la barra superior, es un objeto.
     );
   }
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
+  //este widget es el estado de la app y se llama MyHomePageState que es el que se encarga de crear el estado de la app
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -60,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+//scffold es un widget que crea una estructura de diseño para la app, lo que muestra en pantalla
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -70,11 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
+        //appbar es un widget que crea una barra de aplicacion!
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Center(
+        //es lo que muestra en el cuerpo
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -95,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'hola mundo', //texto que muestra en pantalla en el centro
             ),
             Text(
               '$_counter',
@@ -104,6 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        //es un widget que crea un boton flotante
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
